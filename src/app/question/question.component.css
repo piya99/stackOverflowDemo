@@ -1,0 +1,34 @@
+textarea {
+  resize: vertical;
+}
+
+app-log-in {
+  margin-bottom: 2em;
+}
+
+.question-container > .panel-heading {
+  background-color: #ffff99;
+  color: darkslateblue;
+}
+
+.question-container {
+  background-color: cornflowerblue;
+  margin-top: 2em;
+}
+
+.answers-container > .panel-heading {
+  background-color: ghostwhite;
+}
+
+.post-answer-container > .panel-heading {
+  background-color: transparent;
+  border-bottom-width: 0px;
+}
+
+.glyphicon-alert {
+  color: #ff6846;
+}
+
+.buttons {
+  float: right;
+}

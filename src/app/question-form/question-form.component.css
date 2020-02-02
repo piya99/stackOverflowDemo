@@ -1,0 +1,26 @@
+button {
+  float: right;
+  margin-left: 1em;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.input-group {
+  margin-bottom: 1em;
+}
+
+.tag-container {
+  min-height: 2em;
+}
+
+.buttons {
+  float: right;
+  margin-bottom: 2em;
+}
+
+#description-warning {
+  float: right;
+  margin-right: 5px;
+}

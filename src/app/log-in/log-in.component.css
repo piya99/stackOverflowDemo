@@ -1,0 +1,9 @@
+.failedLogin {
+  margin-top: 1em;
+  width: 250px;
+  text-align: center;
+}
+
+.button-wrapper {
+  float: right;
+}

@@ -1,0 +1,13 @@
+#navbar {
+  display: block;
+  overflow: hidden;
+  -webkit-transition: height .5s;
+  transition: height .5s;
+}
+
+.search-results-container {
+  width: 100%;
+  position: absolute;
+  display: inline-block;
+  margin-top: 35px;
+}

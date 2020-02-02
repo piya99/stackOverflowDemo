@@ -1,0 +1,61 @@
+<div class="list-group col-md-10 col-sm-9 col-xs-12">
+  <ul class="nav nav-tabs pull-right">
+    <li role="presentation" [ngClass]="{'active' : criteria == 'new'}"><a href="/questions" routerLink="/questions/new/" (click)="this.currentPage = 1">New</a></li>
+    <li role="presentation" [ngClass]="{'active' : criteria == 'top'}"><a href="/questions" routerLink="/questions/top/" (click)="this.currentPage = 1">Top</a></li>
+    <li role="presentation" [ngClass]="{'active' : criteria == 'unanswered'}"><a href="/questions" routerLink="/questions/unanswered/" (click)="this.currentPage = 1">Unanswered</a></li>
+  </ul>
+
+  <div class="questions-container">
+  <a href="javascript:void(0)" class="list-group-item" *ngFor="let question of questions">
+    <div class="container-fluid" routerLink="/question/{{question._id}}">
+      <div class="row">
+        <div class="col-sm-6 col-md-3 col-lg-4 row stats-container">
+          <div class="col-xs-4 rating-stat stat">
+            <span class="badge">{{question.rating}}</span>
+            <label class="badge-label">rating</label>
+          </div>
+          <div class="col-xs-4 stat">
+            <span class="badge">{{question.answersCount}}</span>
+            <label class="badge-label">answers</label>
+          </div>
+          <div class="col-xs-4 views-stat stat">
+            <span class="badge">{{question.views}}</span>
+            <label class="badge-label">views</label>
+          </div>
+          <div class="tag-container col-xs-12">
+            <a href="javascript:void(0)" *ngFor="let tag of question.tags">
+              <span class="label label-info">{{tag}}</span>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-9 col-lg-8" >
+          <div style="font-size: larger">{{question.title}}</div>
+          <div style="font-size: smaller">{{question.description | maxLength: 200}}</div>
+        </div>
+      </div>
+    </div>
+  </a>
+  </div>
+  <nav>
+    <ul class="pagination" role="group">
+      <li><a href="javascript:void(0)" (click)="setPage(currentPage-1)"><span>&laquo;</span></a></li>
+      <ng-container *ngFor="let page of pages">
+        <li [ngClass]="{active : page == currentPage}" (click)="setPage(page)"
+            *ngIf="page == 1">
+          <a href="javascript:void(0)">{{page}}</a>
+        </li>
+        <li *ngIf="page == currentPage-3 && currentPage-3 > 1"><a href="javascript:void(0)">...</a></li>
+        <li [ngClass]="{active : page == currentPage}" (click)="setPage(page)"
+            *ngIf="(page >= currentPage-2) && (page <= currentPage+2) && (page != 1) && (page != pages.length)">
+          <a href="javascript:void(0)">{{page}}</a>
+        </li>
+        <li *ngIf="page == currentPage+3 && currentPage+3 < pages.length"><a href="javascript:void(0)">...</a></li>
+        <li [ngClass]="{active : page == currentPage}" (click)="setPage(page)"
+            *ngIf="page == pages.length && page != 1">
+          <a href="javascript:void(0)">{{page}}</a>
+        </li>
+      </ng-container>
+      <li><a href="javascript:void(0)" (click)="setPage(currentPage+1)"><span>&raquo;</span></a></li>
+    </ul>
+  </nav>
+</div>

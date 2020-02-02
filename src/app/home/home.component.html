@@ -1,0 +1,42 @@
+<div class="container col-md-10 col-sm-9 col-xs-12">
+  <div class="row">
+    <div class="page-header">
+      <h3>Top questions</h3>
+    </div>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="list-group-item" *ngFor="let question of questions">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 col-md-4 col-lg-4 row stats-container">
+            <div class="col-xs-4 rating-stat stat">
+              <span class="badge">{{question.rating}}</span>
+              <label class="badge-label">rating</label>
+            </div>
+            <div class="col-xs-4 answers-stat stat">
+              <span class="badge">{{question.answersCount}}</span>
+              <label class="badge-label">answers</label>
+            </div>
+            <div class="col-xs-4 views-stat stat">
+              <span class="badge">{{question.views}}</span>
+              <label class="badge-label">views</label>
+            </div>
+            <div class="tag-container col-xs-12">
+              <a href="javascript:void(0)" *ngFor="let tag of question.tags">
+                <span class="label label-info">{{tag}}</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-9 col-lg-8" >
+            <div style="font-size: larger">{{question.title}}</div>
+            <div style="font-size: smaller">{{question.description | maxLength: 200}}</div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="row">
+    <div class="page-header">
+      <h3>Top tags</h3>
+    </div>
+    <!-- top 10 tags -->
+  </div>
+</div>
